@@ -30,7 +30,7 @@ async function submitForm (e) {
     console.log(options.body)
 
     } catch (err) {
-        console.warn(err);
+        reject(err);
     }
 
 }
@@ -38,15 +38,15 @@ async function submitForm (e) {
 // Get content to load on url based on DB
 
 // onload event listener
-document.addEventListener("DOMContentLoaded", getItem)
-document.addEventListener("DOMContentLoaded", fill)
+// document.addEventListener("DOMContentLoaded", getItem)
+// document.addEventListener("DOMContentLoaded", fill)
 let data
 
 async function getItem() {
     let fullUrl = window.location.href
     let splitUrl =  fullUrl.split('/')
     let shortUrl = splitUrl[3]
-    if (window.location.href !== 'http://127.0.0.1:5500/Client/index.html') { try {
+    if (window.location.href !== 'http://localhost:8080/') { try {
         const response = await fetch(`http://localhost:3000/${shortUrl}`);
         const data = await response.json();
         return data;
@@ -56,7 +56,7 @@ async function getItem() {
 }
 
 function fill(data) {
-    if (window.location.href !== 'http://127.0.0.1:5500/Client/index.html') {
+    if (window.location.href !== 'http://localhost:8080/') {
         // newPostForm.classList.add("hide");
         const title = document.createElement("h1")
         const pseudonym = document.createElement("p")

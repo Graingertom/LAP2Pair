@@ -12,10 +12,10 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:url', (req, res) => {
+router.get('/:url', async (req, res) => {
     try {
         const url = req.params.url;
-        const selectedPost = Post.getByUrl(url);
+        const selectedPost = await Post.getByUrl(url);
         res.send(selectedPost);
         res.status(200)
     } catch (err) {
@@ -24,9 +24,9 @@ router.get('/:url', (req, res) => {
     }
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     const data = req.body;
-    const newPost = Post.addPost(data);
+    const newPost = await Post.addPost(data);
     res.status(201).send(newPost)
 });
 

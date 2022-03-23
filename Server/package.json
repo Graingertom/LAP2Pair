@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browser-sync": "^2.27.9",
     "cors": "^2.8.5",
     "dependencies": "^0.0.1",
     "express": "^4.17.3",

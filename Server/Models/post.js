@@ -5,6 +5,7 @@ class Post {
         this.title = data.title
         this.pseudonym = data.pseudonym
         this.content = data.content
+        this.url = data.url
     }
 
     static async addPost(postData){

@@ -1,34 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+
 #Title {
     border: none;
     position: relative;
-    top: 75px;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    top: 50px;
     left: 100px;
-    padding-top: 20px;
+    width: 70vw;
 }
 
 #Name {
     border: none;
     position: relative;
-    left: -70px;
-    top: 120px;
-    padding-top: 20px;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    left: 100px;
+    top: 40px;
+    width: 70vw;
 }
 
 #content {
     position: relative;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
     left: 100px;
-    top: 120px;
+    top: 50px;
     width: 70vw;
 }
 
 #Submit {
     position: relative;
-    top: 130px;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    top: 80px;
     left: 100px;
     margin-top: 5px;
     border-radius: 15px;
-    width: 150px;
+    width: 20vw;
     font-size: 20px;
+    font-weight: 600;
 }
 
 #Title::placeholder {
@@ -39,3 +46,6 @@
     content:attr(data-text)
 }
 
+.hide {
+    display: none;
+}

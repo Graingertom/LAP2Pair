@@ -35,3 +35,4 @@ services:
       # Maybe add port 27017
 volumes:
   dbdata:
+

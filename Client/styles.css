@@ -46,3 +46,6 @@
     content:attr(data-text)
 }
 
+.hide {
+    display: none;
+}

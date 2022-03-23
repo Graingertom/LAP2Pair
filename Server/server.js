@@ -12,6 +12,7 @@ server.get('/', (req, res) => {
     res.send('Hello World!')
 })
 server.post('/',(req,res) => {
+    console.log('Successfully posted')
     res.send(req.body)
 })
 

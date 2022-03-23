@@ -8,6 +8,11 @@ server.use(express.json());
 const postRoutes = require('./controllers/posts')
 server.use('/posts', postRoutes)
 
-server.get('/', (req, res) => res.send('Hello World!'))
+server.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+server.post('/',(req,res) => {
+    res.send(req.body)
+})
 
 module.exports = server

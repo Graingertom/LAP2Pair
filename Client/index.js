@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", getItem)
 document.addEventListener("DOMContentLoaded", fill)
 let data
 
-async function getItem(url) {
+async function getItem() {
     let fullUrl = window.location.href
     let splitUrl =  fullUrl.split('/')
     let shortUrl = splitUrl[3]
@@ -63,8 +63,8 @@ async function getItem(url) {
 }
 
 function fill(data) {
-    if (window.location.href !== `http://127.0.0.1:5500/Client/index.html`) {
-        newPostForm.classList.add("hide");
+    if (window.location.href !== 'http://localhost:8080/') {
+        // newPostForm.classList.add("hide");
         const title = document.createElement("h1")
         const pseudonym = document.createElement("p")
         const content = document.createElement("p")
@@ -79,6 +79,8 @@ function fill(data) {
         title.appendChild(titleText)
         pseudonym.appendChild(pseudonymText)
         content.appendChild(contentText)
+    } else {
+        newPostForm.classList.remove("hide")
     }
 }
 

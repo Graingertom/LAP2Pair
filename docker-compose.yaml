@@ -1,8 +1,8 @@
 services:
   client:
-    container_name: debug_dev_client
+    container_name: Lap2_client
     build: ./client
-    image: debug_client
+    image: lap2_client
     ports: 
       - 8080:8080
     working_dir: /code

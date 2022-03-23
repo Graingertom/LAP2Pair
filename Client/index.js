@@ -29,13 +29,6 @@ async function submitForm (e) {
 
     console.log(options.body)
 
-    const response = await fetch(`http://localhost:3000/posts/${options.body.url}`, options);
-    const { url, err } = await response.json();
-    if (err) {
-        throw Error(err)
-    } else {
-        window.location = `htttp://localhost:8080/${url}`
-    }
     } catch (err) {
         console.warn(err);
     }
@@ -53,17 +46,17 @@ async function getItem() {
     let fullUrl = window.location.href
     let splitUrl =  fullUrl.split('/')
     let shortUrl = splitUrl[3]
-    try {
+    if (window.location.href !== 'http://127.0.0.1:5500/Client/index.html') { try {
         const response = await fetch(`http://localhost:3000/${shortUrl}`);
         const data = await response.json();
         return data;
     } catch (err) {
         console.warn(err);
-    }
+    } }
 }
 
 function fill(data) {
-    if (window.location.href !== 'http://localhost:8080/') {
+    if (window.location.href !== 'http://127.0.0.1:5500/Client/index.html') {
         // newPostForm.classList.add("hide");
         const title = document.createElement("h1")
         const pseudonym = document.createElement("p")
@@ -73,9 +66,9 @@ function fill(data) {
         const pseudonymText = document.createTextNode(`${data.pseudonym}`)
         const contentText = document.createTextNode(`${data.content}`)
 
-        body.appendChild(title)
-        body.appendChild(pseudonym)
-        body.appendChild(content)
+        document.body.appendChild(title)
+        document.body.appendChild(pseudonym)
+        document.body.appendChild(content)
         title.appendChild(titleText)
         pseudonym.appendChild(pseudonymText)
         content.appendChild(contentText)

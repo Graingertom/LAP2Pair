@@ -1,3 +1,4 @@
+const db = require('../dbConfig/init')
 
 class Post {
     constructor(data){
@@ -8,20 +9,47 @@ class Post {
         this.url = data.url
     }
 
-    static async addPost(postData){
+    static addPost(postData){
         return new Promise (async(resolve,reject) => {
             try{
                 let pd = postData.json
-                let blogData = db.query(`INSERT INTO blogs VALUES (id, title, pseudonym, content) VALUES (
+                let blogData = await db.query(`INSERT INTO blogs VALUES (id, title, pseudonym, content) VALUES (
                     ${pd.id},${pd.name},
                     ${pd.pseudonym},${pd.content}
                 ) RETURNING *;`)
                 let post = new Post(blogData.rows[0])
                 resolve(post)
-            } catch {
+            } catch (err) {
                 reject('Could not add blog post')
             }
         })
     }
 
+    static get All() {
+    return new Promise (async (resolve, reject) => {
+        try {
+            let blogData = await db.query(`SELECT * FROM blogs;`);
+            let blog = blogData.rows.map(b => new Post(b));
+            resolve (blog);
+        } catch (err) {
+            reject(err)
+        }
+    });
+};
+
+    static getByUrl(url){
+        return new Promise (async (resolve,reject) =>{
+            try{
+                let getBlogDataByUrl = await db.query('SELECT * FROM blogs WHERE url = $1',[url])
+                resolve(getBlogDataByUrl)
+            } catch (e) {
+                reject(e)
+            }
+        })
+    }
+    
+    
+
 }
+
+module.exports = Post;

@@ -1,0 +1,38 @@
+#Title {
+    border: none;
+    position: fixed;
+    top: 75px;
+    left: 100px;
+    padding-top: 20px;
+}
+
+#Name {
+    border: none;
+    position: fixed;
+    top: 110px;
+    left: 100px;
+    padding-top: 20px;
+}
+
+#Content {
+    border: none;
+    position: fixed;
+    top: 150px;
+    left: 100px;
+    padding-top: 20px;
+}
+
+#Submit {
+    position: fixed;
+    top: 200px;
+    left: 100px;
+    margin-top: 5px;
+    border-radius: 15px;
+    width: 150px;
+    font-size: 20px;
+}
+
+#Title::placeholder {
+    font-size: 25px;
+}
+

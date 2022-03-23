@@ -1,6 +1,6 @@
 #Title {
     border: none;
-    position: fixed;
+    position: relative;
     top: 75px;
     left: 100px;
     padding-top: 20px;
@@ -8,23 +8,22 @@
 
 #Name {
     border: none;
-    position: fixed;
-    top: 110px;
-    left: 100px;
+    position: relative;
+    left: -70px;
+    top: 120px;
     padding-top: 20px;
 }
 
-#Content {
-    border: none;
-    position: fixed;
-    top: 150px;
+#content {
+    position: relative;
     left: 100px;
-    padding-top: 20px;
+    top: 120px;
+    width: 70vw;
 }
 
 #Submit {
-    position: fixed;
-    top: 200px;
+    position: relative;
+    top: 130px;
     left: 100px;
     margin-top: 5px;
     border-radius: 15px;
@@ -34,5 +33,9 @@
 
 #Title::placeholder {
     font-size: 25px;
+}
+
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
 }
 
